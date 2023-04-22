@@ -11,6 +11,7 @@
     height: 8vh;
     border-radius: 25px;
     background-color: #380D52;
+    box-shadow: 15px 15px 20px 10px rgba(7, 1, 20, 0.25);
 }
 
 #searchBar input {

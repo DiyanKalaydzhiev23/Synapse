@@ -16,7 +16,7 @@ export default function Home() {
 
     const removeVerticalLine = (e) => {
         const inputValue = e.target.value;
-        const newDisplayValue = (inputValue ? 'none' : 'block')
+        const newDisplayValue = (inputValue == '' ? 'none' : 'block')
         setDisplayVerticalBar(newDisplayValue);
     }
 
@@ -32,7 +32,7 @@ export default function Home() {
             if (refSpeech.current.value.includes("white")) {
                 console.log("here");
             }
-        },1000)
+        },100)
     }, []);
 
     if (!browserSupportsSpeechRecognition) {
@@ -44,7 +44,7 @@ export default function Home() {
             <div id={HomeStyles.searchBarWrapper}>
                 <div id={HomeStyles.verticalBar} style={{display: displayVerticalBar}} ></div>
                 <div id={HomeStyles.searchBar}>
-                    <input ref={refSpeech} onInput={removeVerticalLine} type="text" value={transcript} placeholder='Write something stupid' />
+                    <input ref={refSpeech} onChange={removeVerticalLine} type="text" value={transcript} placeholder='Write something stupid' />
                 </div>
             </div>
 
