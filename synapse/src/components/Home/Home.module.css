@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
+#searchBarWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 25vh;
+}
+
+#searchBar {
+    width: 55vw;
+    height: 8vh;
+    border-radius: 25px;
+    background-color: #380D52;
+}
+
+#searchBar input {
+    width: 88%;
+    color: #FEDBE0;
+    word-break: break-all;
+    font-family: 'Sen', sans-serif;
+    margin-left: 3vw;
+    margin-right: 2vw;
+    padding: 1.4vh 10px 10px 1.8vh;
+    font-size: 2em;
+    background-color: transparent;
+    border-width: 0;
+}
+
+#searchBar input::placeholder {
+    color: #FEDBE050;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}  
+
+#verticalBar {
+    position: absolute;
+    margin-right: 50vw;
+    margin-top: 2.2vh;
+    width: 5px;
+    height: 4vh;
+    background-color:#FEDBE0;
+}
+
+#outerTagsWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#tagsWrapper {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 55vw;
+}
+
+.recentTag {
+    color: #FEDBE0;
+    padding: 10px 20px 10px 20px;
+    background-color: #361143;
+    border-radius: 25px;
+    border-top-right-radius: 0px;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import speechIcon from "./speechIcon.svg";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+import "./Speech.css";
 
 function Speech() {
 
@@ -13,9 +14,8 @@ function Speech() {
     } = useSpeechRecognition();
 
     useEffect( () => {
-        
+        startRecording();
 
-        
         
     }, [refSpeech]);
 
@@ -31,10 +31,10 @@ function Speech() {
     return(
         <>
                 <div ref={refSpeech}>
-                    <img src={speechIcon} alt=""    />
+                    <img src={speechIcon} alt="" />
                  </div>
                  
-                <p>Transcript: {transcript}</p>
+                <p className="color">Transcript: {transcript}</p>
         </>
     )
 }
