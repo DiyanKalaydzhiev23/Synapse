@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import HomeStyles from './Home.module.css';
+import useInterval from '../../hooks/useInterval';
 
 export default function Home() {
     const [displayVerticalBar, setDisplayVerticalBar] = useState('block');
+    const [isWriting, setIsWriting] = useState(false);
 
     const refSpeech = useRef(null);
 
@@ -22,29 +24,34 @@ export default function Home() {
 
     const startRecording = () => {
         SpeechRecognition.startListening({ continuous: true, language: "en-US"});
-        resetTranscript();
     };
 
     useEffect( () => {
         startRecording();
-
-        setInterval(() => {
-            if (refSpeech.current.value.includes("white")) {
-                console.log("here");
-            }
-        },100)
+        
     }, []);
+    
+    useInterval(() => {
+        console.log(refSpeech.current.value);
+        if (refSpeech.current.value.includes("something")) {
+                refSpeech.current.value = "";
+                console.log("Something is here");
+                setIsWriting(true);
+                resetTranscript();
+            }
+    }, 100)
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
     }
-
+            
     return (
         <div>
             <div id={HomeStyles.searchBarWrapper}>
                 <div id={HomeStyles.verticalBar} style={{display: displayVerticalBar}} ></div>
                 <div id={HomeStyles.searchBar}>
-                    <input ref={refSpeech} onChange={removeVerticalLine} type="text" value={transcript} placeholder='Write something stupid' />
+                    <input onChange={removeVerticalLine} type="text" value={isWriting ? refSpeech.current.value : ""} placeholder='Write something stupid' />
+                    <input ref={refSpeech} type='text' style={{display: 'none'}} value={ transcript}/>
                 </div>
             </div>
 
