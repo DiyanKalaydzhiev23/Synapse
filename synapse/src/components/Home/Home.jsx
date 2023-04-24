@@ -50,8 +50,14 @@ export default function Home() {
             <div id={HomeStyles.searchBarWrapper}>
                 <div id={HomeStyles.verticalBar} style={{display: displayVerticalBar}} ></div>
                 <div id={HomeStyles.searchBar}>
-                    <input onChange={removeVerticalLine} type="text" value={isWriting ? refSpeech.current.value : ""} placeholder='Write something stupid' />
-                    <input ref={refSpeech} type='text' style={{display: 'none'}} value={ transcript}/>
+                    {
+                        isWriting
+                            ?
+                        <input onChange={removeVerticalLine} type="text" value={refSpeech.current.value} placeholder='Write something stupid' />
+                            :
+                        <input onChange={removeVerticalLine} type="text" placeholder='Write something stupid' />
+                    }
+                    <input ref={refSpeech} type='text' style={{display: 'none'}} value={transcript}/>
                 </div>
             </div>
 
