@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import HomeStyles from './Home.module.css';
 import useInterval from '../../hooks/useInterval';
+import Results from '../Results/Results';
 
 export default function Home() {
     const [displayVerticalBar, setDisplayVerticalBar] = useState('block');
@@ -18,7 +19,7 @@ export default function Home() {
 
     const removeVerticalLine = (e) => {
         const inputValue = e.target.value;
-        const newDisplayValue = (inputValue === '' ? 'none' : 'block')
+        const newDisplayValue = (inputValue === '' ? 'block' : 'none')
         setDisplayVerticalBar(newDisplayValue);
     }
 
@@ -61,13 +62,15 @@ export default function Home() {
                 </div>
             </div>
 
-            <div id={HomeStyles.outerTagsWrapper}>
+            {/* <div id={HomeStyles.outerTagsWrapper}>
                 <div id={HomeStyles.tagsWrapper}>
                     <div className={HomeStyles.recentTag}>Tag one</div>
                     <div className={HomeStyles.recentTag}>Tag two</div>
                     <div className={HomeStyles.recentTag}>Tag three</div>
                 </div>
-            </div>
+            </div> */}
+
+            <Results />
         </div>
     );
 }

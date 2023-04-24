@@ -1,0 +1,62 @@
+#results {
+    margin-top: 20px;
+    width: 77vw;
+    height: 68vh;
+    overflow-y: scroll;
+}
+
+.result {
+    display: flex;
+    padding-bottom: 30px;
+    margin: 0 23vw 0 23vw;
+}
+
+.resultImage {
+    height: 67px !important;
+    width: 67px !important;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: inset 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.fileData { 
+    display: block;
+    width: 100%;
+}
+
+.infoWrapper {
+    display: flex;
+}
+
+.filePathAndDateOfSave {
+    display: flex;
+    justify-content: space-between;
+
+    margin-left: 30px;
+
+    font-family: 'Sen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+
+    color: #FFFFFF;
+
+    opacity: 0.5;
+}
+
+.filename {
+    color:white;
+    font-family: 'Sen', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    margin: 6px 0 8px 30px;
+}
+
+.filePath {
+    margin: 0;
+}
+
+.dateOfSave {
+    margin: 0 0 0 20px;
+}
