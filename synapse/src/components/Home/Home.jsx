@@ -18,7 +18,7 @@ export default function Home() {
 
     const removeVerticalLine = (e) => {
         const inputValue = e.target.value;
-        const newDisplayValue = (inputValue == '' ? 'none' : 'block')
+        const newDisplayValue = (inputValue === '' ? 'none' : 'block')
         setDisplayVerticalBar(newDisplayValue);
     }
 
