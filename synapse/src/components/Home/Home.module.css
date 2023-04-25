@@ -56,7 +56,17 @@ input:focus {
     justify-content: center;
     gap: 20px;
     width: 55vw;
+
 }
+/* #fadeOutOverlay {
+    position: absolute;
+    bottom: 0;
+    opacity: 0.7;
+    width: 77vw;
+    height: 30vh;    
+    background-color: rgb(red, green, blue)
+    margin-left: 15vw;
+} */
 
 .recentTag {
     color: #FEDBE0;

@@ -1,9 +1,20 @@
 #results {
-    margin-top: 20px;
+    margin-top: 50px;
     width: 77vw;
     height: 68vh;
     overflow-y: scroll;
 }
+
+#fadeOutOverlay {
+    position: fixed;
+    bottom: 0;
+    opacity: 0.5;
+    width: 77vw;
+    height: 30vh;
+    color: rgb(247, 247, 247);
+    margin-left: 23vw;
+}
+
 
 .result {
     display: flex;
@@ -26,6 +37,7 @@
 
 .infoWrapper {
     display: flex;
+    margin-top: 10px;
 }
 
 .filePathAndDateOfSave {

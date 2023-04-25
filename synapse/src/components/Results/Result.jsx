@@ -7,7 +7,8 @@ export default function Result() {
 
     useEffect(() => {
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => setVisible(entry.isIntersecting));
+            entries.forEach(entry =>{
+            setVisible(entry.isIntersecting)});
         });
 
         observer.observe(domRef.current);
@@ -26,7 +27,7 @@ export default function Result() {
                         <p className={ResultsStyles.dateOfSave}>05.03.2023</p>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
     );
 }

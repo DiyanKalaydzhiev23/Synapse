@@ -47,6 +47,7 @@ export default function Home() {
     }
             
     return (
+<>
         <div>
             <div id={HomeStyles.searchBarWrapper}>
                 <div id={HomeStyles.verticalBar} style={{display: displayVerticalBar}} ></div>
@@ -71,6 +72,9 @@ export default function Home() {
             </div> */}
 
             <Results />
+         <div id={HomeStyles.fadeOutOverlay}></div>
         </div>
+        </>
+
     );
 }
