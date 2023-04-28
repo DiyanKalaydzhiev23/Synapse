@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import ResultsStyles from './Results.module.css';
 
-export default function Result() {
+export default function Result(props) {
     const [isVisible, setVisible] = useState(false);
     const domRef = useRef();
 
@@ -17,7 +17,7 @@ export default function Result() {
     return (
         <div className={`${ResultsStyles.result} fade-in-section ${isVisible ? 'is-visible' : ''}`} ref={domRef}>
             <div className={ResultsStyles.infoWrapper}>
-                <div className={ResultsStyles.resultImage}></div>
+                <img className={ResultsStyles.resultImage} src={props.imageLink} />
 
                 <div className={ResultsStyles.fileData}>
                     <p className={ResultsStyles.filename}>Test name</p>

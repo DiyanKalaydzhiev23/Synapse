@@ -33,10 +33,8 @@ export default function Home() {
     }, []);
     
     useInterval(() => {
-        console.log(refSpeech.current.value);
         if (refSpeech.current.value.includes("something")) {
                 refSpeech.current.value = "";
-                console.log("Something is here");
                 setIsWriting(true);
                 resetTranscript();
             }
@@ -71,7 +69,7 @@ export default function Home() {
                 </div>
             </div> */}
 
-            <Results />
+            <Results tags="world" />
          <div id={HomeStyles.fadeOutOverlay}></div>
         </div>
         </>

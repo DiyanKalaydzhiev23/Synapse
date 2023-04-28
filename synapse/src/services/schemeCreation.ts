@@ -19,6 +19,18 @@ const schemaConfig = {
         {
             'name': 'tags',
             'dataType': ['string']
+        },
+        {
+            'name': 'fileName',
+            'dataType': ['string']
+        },
+        {
+            'name': 'path',
+            'dateType': ['string']
+        },
+        {
+            'name': 'dateSaved',
+            'dateType': ['string']
         }
     ]
 }

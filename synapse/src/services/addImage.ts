@@ -13,8 +13,8 @@ const addImage = async (imageLink: string, tags: string) => {
 }
 
 const response = addImage(
-    'https://3.bp.blogspot.com/-z7lHrj0L44E/WIuh7Wzo2-I/AAAAAAAABaA/JxcraODITlcFL9DJ7_p862RVzhnfxVpbwCLcB/s1600/1.jpg',
-    'mom binary tree',
+    'https://i.chzbgr.com/full/9295341056/h074C86C7/sky-program-ythor-print-hello-world-uackediari',
+    'python hello world',
 );
 
 console.log("The response", response);

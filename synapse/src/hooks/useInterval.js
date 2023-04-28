@@ -10,7 +10,6 @@ function useInterval(callback, delay, limit) {
     }, [callback]);
 
     useEffect(() => {
-        console.log(delay, count, limit)
         if ((typeof delay === 'number' && count <= limit) || (typeof delay === 'number' && !limit)) {
             intervalRef.current = window.setInterval(() => {
                 setCount(c => c + 1)

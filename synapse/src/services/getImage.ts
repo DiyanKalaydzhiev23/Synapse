@@ -1,21 +1,18 @@
-import { client } from "./app";
+import { client } from "./app.ts";
 
 
-const getImage = async (tags: string) => {
+const getImagesByTag = async (tags: string) => {
     const resImage = await client.graphql.get()
         .withClassName('Meme')
         .withFields('imageLink')
         .withNearText({
-            concepts: ['mom'],
+            concepts: [tags],
             distance: 0.6,
         })
-        .withLimit(1)
+        .withLimit(10)
         .do();
 
-    return resImage.data.Get.Meme[0];
+    return resImage.data.Get.Meme;
 }
 
-
-const result = getImage('mom').then((data) => {
-    console.log(data);
-});
+export default getImagesByTag;
