@@ -3,6 +3,9 @@ import weaviate, { WeaviateClient } from 'weaviate-ts-client';
 const client: WeaviateClient = weaviate.client({
     scheme: 'https',
     host: 'synapse-tc4b96lh.weaviate.network',
+    headers: {
+        "X-Cohere-Api-Key": 'zdID0QrXifIhOaEhdMdrCz0qayOuvfYIrAaJ584l',
+    }
 });
 
 const getSchemaRes = async () => {
