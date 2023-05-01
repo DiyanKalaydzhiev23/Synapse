@@ -17,14 +17,14 @@ export default function Result(props) {
     return (
         <div className={`${ResultsStyles.result} fade-in-section ${isVisible ? 'is-visible' : ''}`} ref={domRef}>
             <div className={ResultsStyles.infoWrapper}>
-                <img className={ResultsStyles.resultImage} src={props.imageLink} />
+                <img className={ResultsStyles.resultImage} src={props.imageData.imageLink} />
 
                 <div className={ResultsStyles.fileData}>
-                    <p className={ResultsStyles.filename}>Test name</p>
+                    <p className={ResultsStyles.filename}>{props.imageData.fileName}</p>
 
                     <div className={ResultsStyles.filePathAndDateOfSave}>
-                        <p className={ResultsStyles.filePath}>G:\Design\Projects_Design_Freelance\RetouchedIllustrations</p>
-                        <p className={ResultsStyles.dateOfSave}>05.03.2023</p>
+                        <p className={ResultsStyles.filePath}>{props.imageData.path}</p>
+                        <p className={ResultsStyles.dateOfSave}>{props.imageData.dateSaved}</p>
                     </div>
                 </div>
             </div>  

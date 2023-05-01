@@ -1,13 +1,13 @@
 import { client } from "./app";
 
 const schemaConfig = {
-    'class': 'Meme',
+    'class': 'MemeExtended',
     'vectorizer': 'text2vec-cohere',
     'vectorIndexType': 'hnsw',
     'moduleConfig': {
         'text2vec-cohere': {
             'textFields': [
-                'tags'
+                'tags',
             ]
         }
     },
@@ -26,11 +26,11 @@ const schemaConfig = {
         },
         {
             'name': 'path',
-            'dateType': ['string']
+            'dataType': ['string']
         },
         {
             'name': 'dateSaved',
-            'dateType': ['string']
+            'dataType': ['string']
         }
     ]
 }
@@ -43,21 +43,3 @@ const createSchema = async () => {
         
     return schema;
 }
-
-const addImage = async (imageLink: string, tags: string) => {
-    const response = await client.data.creator()
-        .withClassName('Meme')
-        .withProperties({
-            imageLink: imageLink,
-            tags: 'mom binary tree',
-        })
-        .do();
-    
-    return response;
-}
-
-createSchema();
-addImage(
-    'https://3.bp.blogspot.com/-z7lHrj0L44E/WIuh7Wzo2-I/AAAAAAAABaA/JxcraODITlcFL9DJ7_p862RVzhnfxVpbwCLcB/s1600/1.jpg',
-    'mom binary tree',
-);

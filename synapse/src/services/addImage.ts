@@ -1,11 +1,19 @@
 import { client } from "./app";
 
-const addImage = async (imageLink: string, tags: string) => {
+const addImage = async (imageLink: string,
+        tags: string, 
+        path: string, 
+        fileName: string,
+        dateSaved: string
+    ) => {
     const response = await client.data.creator()
-        .withClassName('Meme')
+        .withClassName('MemeExtended')
         .withProperties({
             imageLink: imageLink,
             tags: tags,
+            path: path,
+            fileName: fileName,
+            dateSaved: dateSaved
         })
         .do();
     
@@ -13,8 +21,11 @@ const addImage = async (imageLink: string, tags: string) => {
 }
 
 const response = addImage(
-    'https://i.chzbgr.com/full/9295341056/h074C86C7/sky-program-ythor-print-hello-world-uackediari',
-    'python hello world',
+    'https://miro.medium.com/v2/resize:fit:439/1*ZYyXvhYDGvELzYoXYpPLMg.png',
+    'designers programmers idea stole',
+    'G:/Gallery/images/memes/programming/designers.png',
+    'designers.png',
+    '20.09.2019'
 );
 
 console.log("The response", response);

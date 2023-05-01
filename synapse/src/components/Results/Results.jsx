@@ -10,13 +10,13 @@ export default function Results(props) {
     useEffect(() => {
         getImagesByTag(props.tags).then((images) => setResults(images));
         console.log(results);
-    }, [results]);
+    }, []);
 
     return (
         <>
             <div id={ResultsStyles.results}>
                 {results.map((r) => (
-                    <Result key={r.imageLink} imageLink={r.imageLink} />
+                    <Result key={r.imageLink} imageData={r} />
                 ))}
             </div>
         </>
