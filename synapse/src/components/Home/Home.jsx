@@ -7,6 +7,7 @@ import Results from '../Results/Results';
 export default function Home() {
     const [displayVerticalBar, setDisplayVerticalBar] = useState('block');
     const [isWriting, setIsWriting] = useState(false);
+    const [searchText, setSearchText] = useState("");
 
     const refSpeech = useRef(null);
 
@@ -27,9 +28,14 @@ export default function Home() {
         SpeechRecognition.startListening({ continuous: true, language: "en-US"});
     };
 
+    const handleSearchInputChange = (e) => {
+        removeVerticalLine(e);
+        console.log(e.target.value)
+        setSearchText(e.target.value);
+    }
+
     useEffect( () => {
         startRecording(); 
-        
     }, []);
     
     useInterval(() => {
@@ -53,9 +59,14 @@ export default function Home() {
                     {
                         isWriting
                             ?
-                        <input onChange={removeVerticalLine} type="text" value={refSpeech.current.value} placeholder='Write something stupid' />
+                        <input 
+                            onChange={handleSearchInputChange} 
+                            type="text" 
+                            value={refSpeech.current.value} 
+                            placeholder='Write something stupid' 
+                        />
                             :
-                        <input onChange={removeVerticalLine} type="text" placeholder='Write something stupid' />
+                        <input onChange={handleSearchInputChange} type="text" placeholder='Write something stupid' />
                     }
                     <input ref={refSpeech} type='text' style={{display: 'none'}} value={transcript}/>
                 </div>
@@ -69,7 +80,7 @@ export default function Home() {
                 </div>
             </div> */}
 
-            <Results tags="world" />
+            <Results tags={searchText} />
          <div id={HomeStyles.fadeOutOverlay}></div>
         </div>
         </>
