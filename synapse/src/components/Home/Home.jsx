@@ -38,13 +38,13 @@ export default function Home() {
         startRecording(); 
     }, []);
     
-    useInterval(() => {
-        if (refSpeech.current.value.includes("something")) {
-                refSpeech.current.value = "";
-                setIsWriting(true);
-                resetTranscript();
-            }
-    }, 100)
+    // useInterval(() => {
+    //     if (refSpeech.current.value.includes("something")) {
+    //             refSpeech.current.value = "";
+    //             setIsWriting(true);
+    //             resetTranscript();
+    //         }
+    // }, 100)
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
@@ -71,7 +71,7 @@ export default function Home() {
                     <input ref={refSpeech} type='text' style={{display: 'none'}} value={transcript}/>
                 </div>
             </div>
-
+ 
             {/* <div id={HomeStyles.outerTagsWrapper}>
                 <div id={HomeStyles.tagsWrapper}>
                     <div className={HomeStyles.recentTag}>Tag one</div>
