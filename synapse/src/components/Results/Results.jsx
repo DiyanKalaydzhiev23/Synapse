@@ -14,7 +14,7 @@ export default function Results(props) {
 
         console.log(currentTime - timeLastRequest)
 
-        if (currentTime - timeLastRequest >= 2000) {
+        if (currentTime - timeLastRequest >= 300) {
             setTimeLastRequest(currentTime);
         } else {
             return;
