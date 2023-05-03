@@ -4,7 +4,7 @@ import { client } from "./app.ts";
 const getImagesByTag = async (tags: string) => {
     const resImage = await client.graphql.get()
         .withClassName('MemeExtended')
-        .withFields('imageLink path fileName dateSaved')
+        .withFields('imageLink path fileName dateSaved tags')
         .withNearText({
             concepts: [tags],
             distance: 0.6,

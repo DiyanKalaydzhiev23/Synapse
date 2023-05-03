@@ -12,15 +12,22 @@ export default function Results(props) {
 
         const currentTime = new Date();
 
-        console.log(currentTime - timeLastRequest)
-
         if (currentTime - timeLastRequest >= 300) {
             setTimeLastRequest(currentTime);
         } else {
             return;
         }
         
-        getImagesByTag(props.tags).then((images) => setResults(images));
+        getImagesByTag(props.tags).then((images) => {
+            setResults(images)
+            
+            const tags = [];
+            images.forEach(data => {
+                tags.push(data.tags.split(' ')[0])
+            });
+
+            props.setLastTags(tags);
+        });
     }, [props.tags]);
 
     return (
