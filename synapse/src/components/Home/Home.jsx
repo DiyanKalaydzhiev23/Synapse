@@ -74,7 +74,7 @@ export default function Home() {
                 {searchText === ''
                         ?
                     <div id={HomeStyles.outerTagsWrapper}>
-                        <div id={HomeStyles.tagsWrapper}>
+                        <div cls={HomeStyles.tagsWrapper}>
                             {Array.from(new Set(lastTags)).slice(0, 3).map(t => 
                                 <div className={HomeStyles.recentTag} onClick={(e) => {setSearchText(e.target.textContent)}}>{t}</div>
                             )}

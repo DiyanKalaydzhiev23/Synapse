@@ -70,6 +70,7 @@ input:focus {
 
 .recentTag {
     color: #FEDBE0;
+    cursor: pointer;
     padding: 10px 20px 10px 20px;
     background-color: #361143;
     border-radius: 25px;
