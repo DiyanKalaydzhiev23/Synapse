@@ -31,7 +31,6 @@ export default function Home() {
 
     const handleSearchInputChange = (e) => {
         removeVerticalLine(e);
-        console.log(e.target.value)
         setSearchText(e.target.value);
     }
 
@@ -67,7 +66,7 @@ export default function Home() {
                                     placeholder='Write something stupid'
                                 />
                                 :
-                                <input onChange={handleSearchInputChange} type="text" placeholder='Write something stupid' />
+                                <input onChange={handleSearchInputChange} value={searchText} type="text" placeholder='Write something stupid' />
                         }
                         <input ref={refSpeech} type='text' style={{ display: 'none' }} value={transcript} />
                     </div>
@@ -77,7 +76,7 @@ export default function Home() {
                     <div id={HomeStyles.outerTagsWrapper}>
                         <div id={HomeStyles.tagsWrapper}>
                             {Array.from(new Set(lastTags)).slice(0, 3).map(t => 
-                                <div className={HomeStyles.recentTag}>{t}</div>
+                                <div className={HomeStyles.recentTag} onClick={(e) => {setSearchText(e.target.textContent)}}>{t}</div>
                             )}
                         </div>
                     </div>
