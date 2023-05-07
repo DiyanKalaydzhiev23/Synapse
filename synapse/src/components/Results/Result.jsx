@@ -15,7 +15,11 @@ export default function Result(props) {
     }, []);
 
     return (
-        <div className={`${ResultsStyles.result} fade-in-section ${isVisible ? 'is-visible' : ''}`} ref={domRef}>
+        <div 
+            className={`${ResultsStyles.result} fade-in-section ${isVisible ? 'is-visible' : ''}`} 
+            onClick={() => { props.setImageViewerFileName(props.imageData.fileName); props.setImageViewerPath(props.imageData.imageLink); }} 
+            ref={domRef}
+        >
             <div className={ResultsStyles.infoWrapper}>
                 <img className={ResultsStyles.resultImage} src={props.imageData.imageLink} />
 

@@ -34,7 +34,12 @@ export default function Results(props) {
         <>
             <div id={ResultsStyles.results}>
                 {results.map((r) => (
-                    <Result key={r.id} imageData={r} />
+                    <Result 
+                        key={r.id} 
+                        imageData={r} 
+                        setImageViewerFileName={props.setImageViewerFileName}
+                        setImageViewerPath={props.setImageViewerPath}
+                    />
                 ))}
             </div>
         </>

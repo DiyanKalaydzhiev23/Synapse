@@ -1,0 +1,73 @@
+.viewerWrapper {
+    position: absolute;
+    top: 17vh;
+    height: 75vh;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: -10vh;
+    border-radius: 20px;
+    border: 3px solid #343541;
+    box-shadow: 2px 5px 16px 0px #393d42;
+    z-index: 1000;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.navigation {
+    position: absolute;
+    display: flex;
+    width: 30vw;
+    height: 8vh;
+    background-color: #343541;
+    left: 25vw;
+    bottom: -4vh;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileName {
+    color: white;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.3vh;
+    left: 0.9vw;
+    width: 3vw;
+    height: 3vw;
+    cursor: pointer;
+}
+
+.expandBtn {
+    position: absolute;
+    top: 1.3vh;
+    right: 1vw;
+    width: 2vw;
+    height: 2vw;
+    padding: 1.5vh 0px 0px 0.9vw;
+    border-radius: 50px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.imageViewerAppIcon {
+    position: absolute;
+    bottom: 10vh;
+    left: 48.5vw;
+    width: 0;
+    height: 0;
+}
+
+.imageViewerAppIcon img {
+    width: 4vw;
+    height: 4vw;
+    margin-top: 3px;
+    border-radius: 50px;
+    box-shadow: 2px 5px 16px 0px #4a2957;
+    cursor: pointer;
+}
+
+.imageViewerAppIcon img:hover {
+    box-shadow: 2px 5px 16px 0px #605963;
+}

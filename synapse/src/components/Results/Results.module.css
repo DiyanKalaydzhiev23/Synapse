@@ -3,6 +3,7 @@
     width: 77vw;
     height: 68vh;
     overflow-y: scroll;
+    cursor: pointer;
 }
 
 #fadeOutOverlay {
@@ -14,7 +15,6 @@
     color: rgb(247, 247, 247);
     margin-left: 23vw;
 }
-
 
 .result {
     display: flex;

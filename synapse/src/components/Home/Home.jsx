@@ -3,12 +3,15 @@ import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognitio
 import HomeStyles from './Home.module.css';
 import useInterval from '../../hooks/useInterval';
 import Results from '../Results/Results';
+import ImageViewer from '../ImageViewer/ImageViewer';
 
 export default function Home() {
     const [displayVerticalBar, setDisplayVerticalBar] = useState('block');
     const [isWriting, setIsWriting] = useState(false);
     const [searchText, setSearchText] = useState("");
     const [lastTags, setLastTags] = useState([]);
+    const [imageViewerFileName, setImageViewerFileName] = useState('');
+    const [imageViewerPath, setImageViewerPath] = useState('');
 
     const refSpeech = useRef(null);
 
@@ -81,8 +84,19 @@ export default function Home() {
                         </div>
                     </div>
                         :
-                    <Results tags={searchText} setLastTags={setLastTags} />
+                    <Results 
+                        tags={searchText} 
+                        setLastTags={setLastTags} 
+                        setImageViewerFileName={setImageViewerFileName} 
+                        setImageViewerPath={setImageViewerPath}
+                    />
                 }
+
+                <ImageViewer 
+                    imageViewerFileName={imageViewerFileName} 
+                    imageViewerPath={imageViewerPath}
+                    setImageViewerFileName={setImageViewerFileName}
+                />
 
                 <div id={HomeStyles.fadeOutOverlay}></div>
             </div>
