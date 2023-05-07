@@ -37,17 +37,31 @@ export default function Home() {
         setSearchText(e.target.value);
     }
 
+    const handleSearchInputSpeechChange = (e) => {
+        refSpeech.current.value = e.target.value
+        // console.log(e.target.value);
+    }
+
     useEffect(() => {
         startRecording();
     }, []);
 
     useInterval(() => {
-        if (refSpeech.current.value.includes("something")) {
+        if (refSpeech.current.value.includes("hello")) {
             refSpeech.current.value = "";
             setIsWriting(true);
+            setSearchText(transcript)
             resetTranscript();
         }
     }, 100)
+
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 8) {
+            setSearchText(e.target.value.slice(0, -1));
+            console.log(e.target.value);
+
+        }
+    }
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
@@ -63,7 +77,8 @@ export default function Home() {
                             isWriting
                                 ?
                                 <input
-                                    onChange={handleSearchInputChange}
+                                    onChange={handleSearchInputSpeechChange}
+                                    onKeyDown={handleKeyDown}
                                     type="text"
                                     value={refSpeech.current.value}
                                     placeholder='Write something stupid'
