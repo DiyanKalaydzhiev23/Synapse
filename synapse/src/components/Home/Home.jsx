@@ -8,7 +8,7 @@ import ImageViewer from '../ImageViewer/ImageViewer';
 export default function Home() {
     const [displayVerticalBar, setDisplayVerticalBar] = useState('block');
     const [isWriting, setIsWriting] = useState(false);
-    const [searchText, setSearchText] = useState("");
+    let [searchText, setSearchText] = useState("");
     const [lastTags, setLastTags] = useState([]);
     const [imageViewerFileName, setImageViewerFileName] = useState('');
     const [imageViewerPath, setImageViewerPath] = useState('');
@@ -37,31 +37,30 @@ export default function Home() {
         setSearchText(e.target.value);
     }
 
-    const handleSearchInputSpeechChange = (e) => {
-        refSpeech.current.value = e.target.value
-        // console.log(e.target.value);
-    }
-
     useEffect(() => {
         startRecording();
     }, []);
 
     useInterval(() => {
         if (refSpeech.current.value.includes("hello")) {
+            console.log('here');
             refSpeech.current.value = "";
             setIsWriting(true);
-            setSearchText(transcript)
             resetTranscript();
         }
-    }, 100)
 
-    const handleKeyDown = (e) => {
-        if (e.keyCode === 8) {
-            setSearchText(e.target.value.slice(0, -1));
-            console.log(e.target.value);
-
+        if (isWriting) {
+            setIsWriting(true);
+            setSearchText(refSpeech.current.value);
         }
-    }
+
+    }, 100)
+    
+    useEffect(() => {
+        setTimeout(() => {
+            setIsWriting(false);    
+        },10000)     
+    },[isWriting]);
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
@@ -77,8 +76,6 @@ export default function Home() {
                             isWriting
                                 ?
                                 <input
-                                    onChange={handleSearchInputSpeechChange}
-                                    onKeyDown={handleKeyDown}
                                     type="text"
                                     value={refSpeech.current.value}
                                     placeholder='Write something stupid'
