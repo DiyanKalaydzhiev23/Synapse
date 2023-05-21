@@ -1,4 +1,5 @@
 import { client } from "./app";
+import { mockData } from "./mockData";
 
 const addImage = async (imageLink: string,
         tags: string, 
@@ -20,12 +21,14 @@ const addImage = async (imageLink: string,
     return response;
 }
 
-const response = addImage(
-    'https://miro.medium.com/v2/resize:fit:439/1*ZYyXvhYDGvELzYoXYpPLMg.png',
-    'designers programmers idea stole',
-    'G:/Gallery/images/memes/programming/designers.png',
-    'designers.png',
-    '20.09.2019'
-);
-
-console.log("The response", response);
+for (const img of mockData) {
+    let response = addImage(
+        img[0],
+        img[1],
+        img[2],
+        img[3],
+        img[4],
+    );
+    
+    console.log("The response", response);
+}

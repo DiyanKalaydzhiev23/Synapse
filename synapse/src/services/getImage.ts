@@ -9,7 +9,7 @@ const getImagesByTag = async (tags: string) => {
             concepts: [tags],
             distance: 0.6,
         })
-        .withLimit(10)
+        .withLimit(6)
         .do();
 
     return resImage.data.Get.Meme;

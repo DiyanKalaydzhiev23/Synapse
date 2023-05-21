@@ -20,7 +20,7 @@ export default function ImageViewer(props) {
                     </h3>
                     
                     <div className={ViewerStyles.expandBtn}>
-                        <img src="expand-button.svg" alt="close button" />
+                        <img src="expand-button.svg" className={ViewerStyles.expandImage}  alt="close button" />
                     </div>
                 </div>
             </div>

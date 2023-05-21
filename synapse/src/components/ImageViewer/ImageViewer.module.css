@@ -35,18 +35,18 @@
     top: 1.3vh;
     left: 0.9vw;
     width: 3vw;
-    height: 3vw;
+    height: 5.8vh;
     cursor: pointer;
 }
 
 .expandBtn {
     position: absolute;
-    top: 1.3vh;
+    top: 20%;
     right: 1vw;
-    width: 2vw;
-    height: 2vw;
-    padding: 1.5vh 0px 0px 0.9vw;
-    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    padding: 1.5vh 0px 0px 0.7vw;
+    border-radius: 9999px;
     background-color: white;
     cursor: pointer;
 }
@@ -63,11 +63,16 @@
     width: 4vw;
     height: 4vw;
     margin-top: 3px;
-    border-radius: 50px;
+    border-radius: 9999px;
     box-shadow: 2px 5px 16px 0px #4a2957;
     cursor: pointer;
 }
 
 .imageViewerAppIcon img:hover {
     box-shadow: 2px 5px 16px 0px #605963;
+}
+
+.expandImage {
+    margin-left: 0.1vw;
+    margin-top:  -2px;
 }
