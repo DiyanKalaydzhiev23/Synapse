@@ -35,6 +35,7 @@ const schemaConfig = {
     ]
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const createSchema = async () => {
     const schema = await client.schema
         .classCreator()

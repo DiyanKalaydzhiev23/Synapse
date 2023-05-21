@@ -76,3 +76,10 @@ input:focus {
     border-radius: 25px;
     border-top-right-radius: 0px;
 }
+
+.logo {
+    width: 250px;
+    position: 'fixed';
+    top: 10px; 
+    left: 10px;
+}

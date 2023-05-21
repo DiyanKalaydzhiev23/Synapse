@@ -4,6 +4,7 @@ import HomeStyles from './Home.module.css';
 import useInterval from '../../hooks/useInterval';
 import Results from '../Results/Results';
 import ImageViewer from '../ImageViewer/ImageViewer';
+import video from '../../assets/logo.gif'
 
 export default function Home() {
     const [displayVerticalBar, setDisplayVerticalBar] = useState('block');
@@ -14,6 +15,11 @@ export default function Home() {
     const [imageViewerPath, setImageViewerPath] = useState('');
 
     const refSpeech = useRef(null);
+
+    const phrases = [
+        'sign',
+        'synapse',
+    ]
 
     const {
         transcript,
@@ -42,7 +48,7 @@ export default function Home() {
     }, []);
 
     useInterval(() => {
-        if (refSpeech.current.value.includes("hello")) {
+        if (phrases.filter((phrase) => refSpeech.current.value.includes(phrase)).length) {
             console.log('here');
             refSpeech.current.value = "";
             setIsWriting(true);
@@ -75,11 +81,14 @@ export default function Home() {
                         {
                             isWriting
                                 ?
-                                <input
-                                    type="text"
-                                    value={refSpeech.current.value}
-                                    placeholder='Write something stupid'
-                                />
+                                <>
+                                    <img src={video} alt="my-gif" style={{width: '250px', position: 'fixed', top: '10px', left: '10px'}}/>
+                                    <input
+                                        type="text"
+                                        value={refSpeech.current.value}
+                                        placeholder='Write something stupid'
+                                    />
+                                </>
                                 :
                                 <input onChange={handleSearchInputChange} value={searchText} type="text" placeholder='Write something stupid' />
                         }
