@@ -1,7 +1,7 @@
 import { client } from "./app";
 
 const schemaConfig = {
-    'class': 'MemeExtended',
+    'class': 'Meme',
     'vectorizer': 'text2vec-cohere',
     'vectorIndexType': 'hnsw',
     'moduleConfig': {
@@ -44,3 +44,5 @@ const createSchema = async () => {
         
     return schema;
 }
+
+console.log(createSchema())

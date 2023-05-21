@@ -7,7 +7,7 @@ const addImage = async (imageLink: string,
         dateSaved: string
     ) => {
     const response = await client.data.creator()
-        .withClassName('MemeExtended')
+        .withClassName('Meme')
         .withProperties({
             imageLink: imageLink,
             tags: tags,
