@@ -15,6 +15,7 @@ export default function Home() {
     const [imageViewerPath, setImageViewerPath] = useState('');
 
     const refSpeech = useRef(null);
+    const refLogoVisible = useRef(false);
 
     const phrases = [
         'sign',
@@ -45,6 +46,7 @@ export default function Home() {
 
     useEffect(() => {
         startRecording();
+        refLogoVisible.current = true; 
     }, []);
 
     useInterval(() => {
@@ -80,9 +82,9 @@ export default function Home() {
                     <div id={HomeStyles.searchBar}>
                         {
                             isWriting
-                                ?
+                            ?
                                 <>
-                                    <img src={video} alt="my-gif" style={{width: '250px', position: 'fixed', top: '10px', left: '10px'}}/>
+                                    <img src={video} alt="my-gif" id={HomeStyles.logo} className={'animate__animated animate__fadeIn'}/>
                                     <input
                                         type="text"
                                         value={refSpeech.current.value}
@@ -90,7 +92,10 @@ export default function Home() {
                                     />
                                 </>
                                 :
-                                <input onChange={handleSearchInputChange} value={searchText} type="text" placeholder='Write something stupid' />
+                                <>
+                                    <input onChange={handleSearchInputChange} value={searchText} type="text" placeholder='Write something stupid' />
+                                    <img style={refLogoVisible ? {display: 'none'} : {display: 'flex'}} src={video} alt="my-gif" id={HomeStyles.logo} className={'animate__animated animate__fadeOut'}/>
+                                </>
                         }
                         <input ref={refSpeech} type='text' style={{ display: 'none' }} value={transcript} />
                     </div>

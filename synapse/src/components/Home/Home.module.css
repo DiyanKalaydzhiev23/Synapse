@@ -56,30 +56,26 @@ input:focus {
     justify-content: center;
     gap: 20px;
     width: 55vw;
-
 }
-/* #fadeOutOverlay {
-    position: absolute;
-    bottom: 0;
-    opacity: 0.7;
-    width: 77vw;
-    height: 30vh;    
-    background-color: rgb(red, green, blue)
-    margin-left: 15vw;
-} */
+
+#logo {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 50px; 
+    left: 50px;
+    box-shadow: 10px 8px 20px 5px rgba(7, 1, 20, 0.515);
+    -webkit-box-shadow: 10px 8px 20px 5px rgba(7, 1, 20, 0.515);
+    -moz-box-shadow: 10px 8px 20px 5px rgba(7, 1, 20, 0.515);
+    border-radius: 9999px;
+}
 
 .recentTag {
     color: #FEDBE0;
     cursor: pointer;
+    margin-top: 10px;
     padding: 10px 20px 10px 20px;
     background-color: #361143;
     border-radius: 25px;
     border-top-right-radius: 0px;
-}
-
-.logo {
-    width: 250px;
-    position: 'fixed';
-    top: 10px; 
-    left: 10px;
 }
